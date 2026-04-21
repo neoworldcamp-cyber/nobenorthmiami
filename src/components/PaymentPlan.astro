@@ -1,0 +1,160 @@
+---
+const stepsEN = [
+  { pct: "20%", label: "At Contract", date: "May 2026", desc: "Reserve your residence with a 20% deposit. Secure today's pre-construction pricing before the market moves.", highlight: true },
+  { pct: "10%", label: "Construction Start", date: "Q2 2027", desc: "A second 10% as groundbreaking begins — watch your investment take shape from the ground up.", highlight: false },
+  { pct: "10%", label: "Top-Off", date: "Q3 2028", desc: "The building reaches its peak. Another 10% marks this milestone as finishes and interiors come to life.", highlight: false },
+  { pct: "60%", label: "At Closing", date: "Q3 2029", desc: "The remaining 60% is due at closing — typically financed through a mortgage. Move in or rent immediately.", highlight: false },
+];
+
+const stepsES = [
+  { pct: "20%", label: "Al Contrato", date: "Mayo 2026", desc: "Reserva tu residencia con un depósito del 20%. Asegura el precio de preventa de hoy antes de que el mercado se mueva.", highlight: true },
+  { pct: "10%", label: "Inicio de Obra", date: "Q2 2027", desc: "Un segundo 10% al comenzar la construcción — observa cómo tu inversión toma forma desde los cimientos.", highlight: false },
+  { pct: "10%", label: "Estructura Completa", date: "Q3 2028", desc: "El edificio alcanza su punto más alto. Otro 10% marca este hito mientras los acabados e interiores cobran vida.", highlight: false },
+  { pct: "60%", label: "Al Cierre", date: "Q3 2029", desc: "El 60% restante se paga al cierre — típicamente financiado. Listo para mudarse o rentar de inmediato.", highlight: false },
+];
+
+const whyEN = [
+  { title: "No Rental Restrictions", desc: "Short-term rentals (Airbnb, VRBO) are permitted — generating income while you wait to close." },
+  { title: "Pre-Construction Pricing", desc: "Lock in today's prices before the project sells out. Miami Beach prices have historically risen 8–12% per year." },
+  { title: "Fully Furnished", desc: "Zero additional spend on furniture or setup. Your investment is immediately rent-ready from day one." },
+];
+
+const whyES = [
+  { title: "Sin Restricciones de Alquiler", desc: "Se permiten rentas cortas (Airbnb, VRBO) — generando ingresos mientras esperas el cierre." },
+  { title: "Precio de Preventa", desc: "Bloquea los precios de hoy antes de que el proyecto se agote. Miami Beach sube históricamente 8–12% anual." },
+  { title: "Completamente Amoblado", desc: "Cero gasto adicional en muebles o instalación. Tu inversión está lista para rentar desde el primer día." },
+];
+---
+
+<section class="payment" id="payment" aria-labelledby="payment-heading">
+  <div class="payment__inner">
+    <div class="payment__header">
+      <p class="section-label">
+        <span class="lang-en">Investment Structure</span>
+        <span class="lang-es">Estructura de Inversión</span>
+      </p>
+      <div class="gold-line"></div>
+      <h2 class="section-title" id="payment-heading">
+        <span class="lang-en">A Flexible Path<br/>to Ownership</span>
+        <span class="lang-es">Un Camino Flexible<br/>hacia la Propiedad</span>
+      </h2>
+      <p class="section-subtitle">
+        <span class="lang-en">NoBe PARC's developer-structured payment plan lets you secure your luxury Miami Beach residence with as little as 20% today — and only 40% before closing.</span>
+        <span class="lang-es">El plan de pagos de NoBe PARC te permite asegurar tu residencia de lujo en Miami Beach con tan solo el 20% hoy — y solo el 40% antes del cierre.</span>
+      </p>
+    </div>
+
+    <!-- English timeline -->
+    <div class="payment__timeline lang-en">
+      {stepsEN.map((step, i) => (
+        <div class={`timeline-step ${step.highlight ? 'highlighted' : ''}`}>
+          <div class="step-number">{String(i + 1).padStart(2, '0')}</div>
+          <div class="step-pct">{step.pct}</div>
+          <div class="step-label">{step.label}</div>
+          <div class="step-date">{step.date}</div>
+          <div class="step-desc">{step.desc}</div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Spanish timeline -->
+    <div class="payment__timeline lang-es">
+      {stepsES.map((step, i) => (
+        <div class={`timeline-step ${step.highlight ? 'highlighted' : ''}`}>
+          <div class="step-number">{String(i + 1).padStart(2, '0')}</div>
+          <div class="step-pct">{step.pct}</div>
+          <div class="step-label">{step.label}</div>
+          <div class="step-date">{step.date}</div>
+          <div class="step-desc">{step.desc}</div>
+        </div>
+      ))}
+    </div>
+
+    <div class="payment__note">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <p>
+        <span class="lang-en">Financing available. Most buyers finance the 60% closing payment through a conventional US mortgage. Our team can connect you with preferred lenders.</span>
+        <span class="lang-es">Financiamiento disponible. La mayoría de los compradores financia el 60% del cierre mediante una hipoteca convencional en EE.UU. Nuestro equipo puede conectarte con prestamistas preferidos.</span>
+      </p>
+    </div>
+
+    <!-- English why -->
+    <div class="payment__why lang-en">
+      {whyEN.map((w, i) => (
+        <>
+          <div class="why-item">
+            <strong>{w.title}</strong>
+            <p>{w.desc}</p>
+          </div>
+          {i < whyEN.length - 1 && <div class="why-divider" aria-hidden="true"></div>}
+        </>
+      ))}
+    </div>
+
+    <!-- Spanish why -->
+    <div class="payment__why lang-es">
+      {whyES.map((w, i) => (
+        <>
+          <div class="why-item">
+            <strong>{w.title}</strong>
+            <p>{w.desc}</p>
+          </div>
+          {i < whyES.length - 1 && <div class="why-divider" aria-hidden="true"></div>}
+        </>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .payment { padding: 8rem 3rem; background: var(--navy-light); border-top: 1px solid var(--gold-border); border-bottom: 1px solid var(--gold-border); }
+
+  .payment__inner { max-width: 1200px; margin: 0 auto; }
+
+  .payment__header { max-width: 600px; margin-bottom: 5rem; }
+
+  .payment__timeline { display: grid; grid-template-columns: repeat(4, 1fr); position: relative; margin-bottom: 3rem; }
+
+  .payment__timeline::before { content: ''; position: absolute; top: 3.2rem; left: 10%; right: 10%; height: 1px; background: var(--gold-border); z-index: 0; }
+
+  .timeline-step { padding: 0 1.5rem 2rem; position: relative; z-index: 1; text-align: center; border-right: 1px solid var(--gold-border); transition: background 0.3s ease; }
+
+  .timeline-step:last-child { border-right: none; }
+
+  .timeline-step.highlighted { background: var(--gold-dim); }
+
+  .step-number { font-family: 'DM Sans', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; color: var(--gold); margin-bottom: 1.5rem; }
+
+  .step-pct { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 300; color: var(--gold); line-height: 1; margin-bottom: 0.4rem; }
+
+  .step-label { font-family: 'DM Sans', sans-serif; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); margin-bottom: 0.3rem; }
+
+  .step-date { font-size: 0.76rem; color: var(--gold); margin-bottom: 1.2rem; }
+
+  .step-desc { font-size: 0.92rem; color: var(--white-dim); line-height: 1.75; }
+
+  .payment__note { display: flex; align-items: flex-start; gap: 0.8rem; background: var(--white-faint); border: 1px solid var(--gold-border); padding: 1.2rem 1.6rem; margin-bottom: 4rem; color: var(--gold); }
+
+  .payment__note p { font-size: 0.95rem; color: var(--white-dim); line-height: 1.7; }
+
+  .payment__why { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; padding: 3rem 0 0; border-top: 1px solid var(--gold-border); }
+
+  .why-item strong { display: block; font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 500; color: var(--white); margin-bottom: 0.6rem; }
+
+  .why-item p { font-size: 0.95rem; color: var(--white-dim); line-height: 1.75; }
+
+  .why-divider { width: 1px; background: var(--gold-border); margin: 0 3rem; }
+
+  @media (max-width: 900px) {
+    .payment__timeline { grid-template-columns: repeat(2, 1fr); }
+    .payment__timeline::before { display: none; }
+    .payment__why { grid-template-columns: 1fr; gap: 2rem; }
+    .why-divider { display: none; }
+  }
+
+  @media (max-width: 600px) {
+    .payment { padding: 5rem 1.5rem; }
+    .payment__timeline { grid-template-columns: 1fr; }
+    .timeline-step { border-right: none; border-bottom: 1px solid var(--gold-border); text-align: left; }
+  }
+</style>

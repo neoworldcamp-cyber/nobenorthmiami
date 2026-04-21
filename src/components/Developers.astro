@@ -1,0 +1,139 @@
+---
+---
+<section class="developers" id="developers" aria-labelledby="dev-heading">
+  <div class="developers__inner">
+    <div class="developers__header">
+      <p class="section-label">
+        <span class="lang-en">The Team Behind the Vision</span>
+        <span class="lang-es">El Equipo Detrás de la Visión</span>
+      </p>
+      <div class="gold-line"></div>
+      <h2 class="section-title section-title--developers" id="dev-heading">
+        <span class="lang-en">
+          <span class="dev-title-line">World-Class Expertise</span>
+          <span class="dev-title-line">Behind Every Detail</span>
+        </span>
+        <span class="lang-es">
+          <span class="dev-title-line">Experiencia de Clase Mundial</span>
+          <span class="dev-title-line">en Cada Detalle</span>
+        </span>
+      </h2>
+    </div>
+
+    <div class="developers__cards">
+      <div class="dev-card">
+        <div class="dev-card__logo" aria-hidden="true">
+          <span class="dev-initials">F</span>
+        </div>
+        <div class="dev-card__body">
+          <p class="dev-role">
+            <span class="lang-en">Developer</span>
+            <span class="lang-es">Desarrollador</span>
+          </p>
+          <h3 class="dev-name">Finvarb Group</h3>
+          <p class="dev-desc">
+            <span class="lang-en">A Miami-based real estate development firm with a proven track record of delivering iconic residential projects across South Florida. Finvarb brings decades of expertise in luxury development, placemaking, and investor relations to NoBe PARC.</span>
+            <span class="lang-es">Una firma de desarrollo inmobiliario con sede en Miami y un historial probado de proyectos residenciales icónicos en el sur de Florida. Finvarb aporta décadas de experiencia en desarrollo de lujo, placemaking y relaciones con inversores a NoBe PARC.</span>
+          </p>
+          <ul class="dev-stats">
+            <li>
+              <strong>15+</strong>
+              <span><span class="lang-en">Years of Experience</span><span class="lang-es">Años de Experiencia</span></span>
+            </li>
+            <li>
+              <strong>$2B+</strong>
+              <span><span class="lang-en">in Developed Assets</span><span class="lang-es">en Activos Desarrollados</span></span>
+            </li>
+            <li>
+              <strong>Miami</strong>
+              <span><span class="lang-en">Local Expertise</span><span class="lang-es">Expertise Local</span></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="dev-card">
+        <div class="dev-card__logo" aria-hidden="true">
+          <span class="dev-initials">A</span>
+        </div>
+        <div class="dev-card__body">
+          <p class="dev-role">
+            <span class="lang-en">Architect</span>
+            <span class="lang-es">Arquitecto</span>
+          </p>
+          <h3 class="dev-name">Arquitectonica</h3>
+          <p class="dev-desc">
+            <span class="lang-en">One of the world's most iconic architectural firms — synonymous with the Miami skyline. Founded in Miami in 1977, Arquitectonica has designed landmark buildings across six continents, bringing their signature bold, tropical-modern aesthetic to NoBe PARC.</span>
+            <span class="lang-es">Una de las firmas de arquitectura más icónicas del mundo — sinónimo del horizonte de Miami. Fundada en Miami en 1977, Arquitectonica ha diseñado edificios emblemáticos en seis continentes, llevando su característica estética tropical y moderna a NoBe PARC.</span>
+          </p>
+          <ul class="dev-stats">
+            <li>
+              <strong>45+</strong>
+              <span><span class="lang-en">Years of Design</span><span class="lang-es">Años de Diseño</span></span>
+            </li>
+            <li>
+              <strong>6</strong>
+              <span><span class="lang-en">Continents</span><span class="lang-es">Continentes</span></span>
+            </li>
+            <li>
+              <strong><span class="lang-en">Global Icon</span><span class="lang-es">Ícono Global</span></strong>
+              <span><span class="lang-en">Miami's Architect</span><span class="lang-es">El Arquitecto de Miami</span></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .developers { padding: 8rem 3rem; background: var(--navy); border-top: 1px solid var(--gold-border); }
+
+  .developers__inner { max-width: 1200px; margin: 0 auto; }
+
+  .developers__header { max-width: 640px; margin-bottom: 4rem; }
+
+  /* Two clear lines: each phrase stays one row (narrow screens shrink type) */
+  .developers .section-title--developers {
+    font-size: clamp(1.75rem, 4vw, 3.35rem);
+    line-height: 1.12;
+  }
+
+  .developers .dev-title-line {
+    display: block;
+  }
+
+  @media (min-width: 420px) {
+    .developers .dev-title-line {
+      white-space: nowrap;
+    }
+  }
+
+  .developers__cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5px; background: var(--gold-border); }
+
+  .dev-card { background: var(--navy-mid); padding: 3rem; display: flex; gap: 2.5rem; align-items: flex-start; transition: background 0.3s ease; }
+
+  .dev-card:hover { background: var(--navy-light); }
+
+  .dev-card__logo { width: 72px; height: 72px; background: var(--gold-dim); border: 1px solid var(--gold-border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+  .dev-initials { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 300; color: var(--gold); line-height: 1; }
+
+  .dev-role { font-family: 'DM Sans', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.20em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem; }
+
+  .dev-name { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 400; color: var(--white); margin-bottom: 1rem; }
+
+  .dev-desc { font-size: 0.95rem; color: var(--white-dim); line-height: 1.8; margin-bottom: 1.6rem; }
+
+  .dev-stats { list-style: none; display: flex; gap: 2rem; flex-wrap: wrap; }
+
+  .dev-stats li { display: flex; flex-direction: column; gap: 0.1rem; }
+
+  .dev-stats strong { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400; color: var(--gold); line-height: 1; }
+
+  .dev-stats span { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.10em; text-transform: uppercase; color: var(--white-dim); }
+
+  @media (max-width: 900px) { .developers__cards { grid-template-columns: 1fr; } .developers { padding: 5rem 1.5rem; } }
+
+  @media (max-width: 600px) { .dev-card { flex-direction: column; gap: 1.5rem; padding: 2rem; } }
+</style>

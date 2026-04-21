@@ -1,0 +1,119 @@
+---
+const amEN = [
+  { icon: "🏖️", title: "Private Beach Service", desc: "Dedicated beach attendants, loungers, and umbrellas — resort life, every day." },
+  { icon: "🏊", title: "Resort-Style Pool", desc: "Rooftop infinity pool with panoramic views of Miami Beach and the Atlantic." },
+  { icon: "🏋️", title: "State-of-the-Art Fitness", desc: "Full-service gym with the latest equipment, yoga studio, and wellness programs." },
+  { icon: "🧖", title: "Spa & Wellness", desc: "Tranquil spa treatments, steam rooms, and cold plunge experiences on-site." },
+  { icon: "🍽️", title: "Fine Dining Lounge", desc: "Curated dining and social spaces designed for residents and their guests." },
+  { icon: "🚗", title: "Valet & Concierge", desc: "White-glove concierge services and covered parking for complete peace of mind." },
+  { icon: "🌿", title: "Lush Sky Gardens", desc: "Tropical landscaped terraces bring nature to every level of the building." },
+  { icon: "🔒", title: "24/7 Security", desc: "Controlled access, surveillance, and professional security teams around the clock." },
+];
+
+const amES = [
+  { icon: "🏖️", title: "Servicio Privado de Playa", desc: "Asistentes, tumbonas y sombrillas dedicadas — vida resort, cada día." },
+  { icon: "🏊", title: "Piscina Estilo Resort", desc: "Piscina infinita en la azotea con vistas panorámicas de Miami Beach y el Atlántico." },
+  { icon: "🏋️", title: "Gimnasio de Última Generación", desc: "Gym completo con equipos de última tecnología, estudio de yoga y programas de bienestar." },
+  { icon: "🧖", title: "Spa & Bienestar", desc: "Tratamientos de spa, saunas y experiencias de inmersión fría en el propio edificio." },
+  { icon: "🍽️", title: "Salón de Restauración", desc: "Espacios gastronómicos y sociales curados para residentes y sus invitados." },
+  { icon: "🚗", title: "Valet & Conserje", desc: "Servicios de conserje de guante blanco y estacionamiento cubierto para total tranquilidad." },
+  { icon: "🌿", title: "Jardines Tropicales en Altura", desc: "Terrazas con paisajismo tropical que llevan la naturaleza a cada nivel del edificio." },
+  { icon: "🔒", title: "Seguridad 24/7", desc: "Acceso controlado, videovigilancia y equipos de seguridad profesional las 24 horas." },
+];
+---
+<section class="amenities" id="amenities" aria-labelledby="amenities-heading">
+  <div class="amenities__inner">
+    <div class="amenities__header">
+      <p class="section-label">
+        <span class="lang-en">World-Class Amenities</span>
+        <span class="lang-es">Amenidades de Clase Mundial</span>
+      </p>
+      <div class="gold-line"></div>
+      <h2 class="section-title" id="amenities-heading">
+        <span class="lang-en">Life at NoBe PARC<br/>Is the Amenity</span>
+        <span class="lang-es">Vivir en NoBe PARC<br/>Es la Amenidad</span>
+      </h2>
+      <p class="section-subtitle">
+        <span class="lang-en">A curated collection of resort amenities designed not as extras — but as the foundation of daily life at Miami Beach's most coveted new address.</span>
+        <span class="lang-es">Una colección curada de amenidades resort diseñadas no como extras — sino como la base de la vida cotidiana en la nueva dirección más codiciada de Miami Beach.</span>
+      </p>
+    </div>
+
+    <div class="amenities__grid lang-en">
+      {amEN.map((a) => (
+        <div class="amenity-item">
+          <span class="amenity-icon" aria-hidden="true">{a.icon}</span>
+          <h3 class="amenity-title">{a.title}</h3>
+          <p class="amenity-desc">{a.desc}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="amenities__grid lang-es">
+      {amES.map((a) => (
+        <div class="amenity-item">
+          <span class="amenity-icon" aria-hidden="true">{a.icon}</span>
+          <h3 class="amenity-title">{a.title}</h3>
+          <p class="amenity-desc">{a.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .amenities {
+    padding: 8rem 3rem;
+    background: #111111;
+    border-top: 1px solid rgba(196,168,130,0.20);
+    border-bottom: 1px solid rgba(196,168,130,0.20);
+  }
+
+  .amenities .section-label { color: #C4A882; }
+  .amenities .gold-line { background: #C4A882; }
+  .amenities .section-title { color: #FFFFFF; }
+  .amenities .section-subtitle { color: rgba(255,255,255,0.60); }
+
+  .amenities__inner { max-width: 1200px; margin: 0 auto; }
+
+  .amenities__header { max-width: 580px; margin-bottom: 4rem; }
+
+  .amenities__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5px;
+    background: var(--gold-border);
+  }
+
+  .amenity-item {
+    background: rgba(255,255,255,0.08);
+    padding: 2.2rem 1.8rem;
+    transition: background 0.3s ease;
+  }
+
+  .amenity-item:hover { background: rgba(255,255,255,0.15); }
+
+  .amenity-icon {
+    font-size: 1.6rem;
+    display: block;
+    margin-bottom: 1rem;
+    line-height: 1;
+  }
+
+  .amenity-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #FFFFFF;
+    margin-bottom: 0.6rem;
+  }
+
+  .amenity-desc { font-size: 0.77rem; color: rgba(255,255,255,0.55); line-height: 1.75; }
+
+  @media (max-width: 900px) { .amenities__grid { grid-template-columns: repeat(2, 1fr); } }
+
+  @media (max-width: 500px) {
+    .amenities { padding: 5rem 1.5rem; }
+    .amenities__grid { grid-template-columns: 1fr; }
+  }
+</style>

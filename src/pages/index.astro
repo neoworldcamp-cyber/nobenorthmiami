@@ -1,0 +1,31 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Residences from '../components/Residences.astro';
+import Amenities from '../components/Amenities.astro';
+import PaymentPlan from '../components/PaymentPlan.astro';
+import Location from '../components/Location.astro';
+import Developers from '../components/Developers.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="NoBe PARC Miami Beach | Residencias de Lujo desde $560K"
+  description="222 residencias completamente amobladas en 7140 Abbott Ave, Miami Beach. Estudios hasta 2 dormitorios desde $560K. Sin restricciones de alquiler, servicio de playa incluido. Arquitectonica y Finvarb."
+>
+  <Navbar />
+  <main id="main">
+    <Hero />
+    <About />
+    <Residences />
+    <Amenities />
+    <PaymentPlan />
+    <Location />
+    <Developers />
+    <Contact />
+  </main>
+  <Footer />
+</Layout>

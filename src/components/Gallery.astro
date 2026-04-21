@@ -1,0 +1,91 @@
+---
+// All photos are real North Beach / Miami Beach shots
+// Sources: Wikimedia Commons (CC0 / CC BY / Public Domain) and Unsplash
+const images = [
+  {
+    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Miami_Beach%2C_FL_-_Panorama_%282%29.jpg/1920px-Miami_Beach%2C_FL_-_Panorama_%282%29.jpg",
+    alt: "Miami Beach panoramic coastline view from Lummus Park / Vista panorámica de Miami Beach desde Lummus Park",
+    wide: true,
+  },
+  {
+    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/North_Miami_Beach_at_Dawn.jpg/900px-North_Miami_Beach_at_Dawn.jpg",
+    alt: "North Miami Beach at dawn / North Miami Beach al amanecer",
+    wide: false,
+  },
+  {
+    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Gfp-florida-miami-north-beach-horizon.jpg/900px-Gfp-florida-miami-north-beach-horizon.jpg",
+    alt: "North Beach Miami Beach horizon at dusk / Horizonte de North Beach Miami al atardecer",
+    wide: false,
+  },
+  {
+    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Gfp-florida-miami-atlantic-shoreline.jpg/900px-Gfp-florida-miami-atlantic-shoreline.jpg",
+    alt: "Miami Beach Atlantic shoreline and skyline / Costa atlántica y skyline de Miami Beach",
+    wide: false,
+  },
+  {
+    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/North_Beach_Miami_Waterway_by_D_Ramey_Logan.jpg/900px-North_Beach_Miami_Waterway_by_D_Ramey_Logan.jpg",
+    alt: "North Beach Miami waterway / Canal de North Beach Miami",
+    wide: false,
+  },
+  {
+    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Miami_Beach_SNU-MIA.jpg/1920px-Miami_Beach_SNU-MIA.jpg",
+    alt: "Miami Beach aerial view 2023 / Vista aérea de Miami Beach 2023",
+    wide: true,
+  },
+];
+---
+
+<section class="gallery" id="gallery" aria-labelledby="gallery-heading">
+  <div class="gallery__header">
+    <p class="section-label">
+      <span class="lang-en">Gallery</span>
+      <span class="lang-es">Galería</span>
+    </p>
+    <div class="gold-line" style="margin:1.25rem auto;"></div>
+    <h2 class="section-title" id="gallery-heading">
+      <span class="lang-en">Envision Your<br/>Miami Lifestyle</span>
+      <span class="lang-es">Imagina tu<br/>Estilo de Vida en Miami</span>
+    </h2>
+  </div>
+
+  <div class="gallery__mosaic" role="list" aria-label="Property gallery">
+    {images.map((img) => (
+      <figure class={`gallery-item ${img.wide ? 'gallery-item--wide' : ''}`} role="listitem">
+        <img src={img.src} alt={img.alt} loading="lazy" width="900" height="600" />
+        <div class="gallery-item__overlay" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+        </div>
+      </figure>
+    ))}
+  </div>
+</section>
+
+<style>
+  .gallery { padding: 8rem 0; background: var(--navy-mid); border-top: 1px solid var(--gold-border); }
+
+  .gallery__header { text-align: center; padding: 0 3rem; margin-bottom: 3.5rem; }
+
+  .gallery__mosaic { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; padding: 0 4px; }
+
+  .gallery-item { position: relative; overflow: hidden; aspect-ratio: 4/3; cursor: pointer; margin: 0; }
+
+  .gallery-item--wide { grid-column: span 2; aspect-ratio: 16/7; }
+
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 0.6s ease; display: block; }
+
+  .gallery-item:hover img { transform: scale(1.06); }
+
+  .gallery-item__overlay { position: absolute; inset: 0; background: rgba(8,14,29,0); display: flex; align-items: center; justify-content: center; color: var(--white); opacity: 0; transition: opacity 0.3s ease, background 0.3s ease; }
+
+  .gallery-item:hover .gallery-item__overlay { opacity: 1; background: rgba(8,14,29,.45); }
+
+  @media (max-width: 768px) {
+    .gallery__mosaic { grid-template-columns: 1fr 1fr; }
+    .gallery-item--wide { grid-column: 1 / -1; }
+  }
+
+  @media (max-width: 480px) {
+    .gallery__mosaic { grid-template-columns: 1fr; }
+    .gallery-item--wide { grid-column: 1; }
+  }
+</style>

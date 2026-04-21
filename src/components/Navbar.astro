@@ -1,0 +1,336 @@
+---
+const WA = "https://api.whatsapp.com/send/?phone=17869651217&text&type=phone_number&app_absent=0";
+---
+<header class="navbar" id="navbar">
+  <div class="navbar__inner">
+    <a href="#hero" class="navbar__logo" aria-label="NoBe PARC Miami Beach">
+      <span class="logo-nobe">NoBe</span>
+      <span class="logo-parc">PARC</span>
+      <span class="logo-location">Miami Beach</span>
+    </a>
+
+    <nav class="navbar__nav" aria-label="Main navigation">
+      <a href="#residences"><span class="lang-en">Residences</span><span class="lang-es">Residencias</span></a>
+      <a href="#amenities"><span class="lang-en">Amenities</span><span class="lang-es">Amenidades</span></a>
+      <a href="#location"><span class="lang-en">Location</span><span class="lang-es">Ubicación</span></a>
+      <a href="#payment"><span class="lang-en">Investment</span><span class="lang-es">Inversión</span></a>
+      <a href={WA} target="_blank" rel="noopener noreferrer" class="nav-cta">
+        <span class="lang-en">Contact Us</span><span class="lang-es">Contáctanos</span>
+      </a>
+
+      <button
+        class="lang-toggle"
+        aria-label="Switch to Spanish"
+        title="Cambiar idioma / Change language"
+      >
+        <span class="lang-toggle__active">ES</span>
+        <span class="lang-toggle__sep">/</span>
+        <span class="lang-toggle__other lang-en">ES</span>
+        <span class="lang-toggle__other lang-es">EN</span>
+      </button>
+    </nav>
+
+    <div class="navbar__right-mobile">
+      <button
+        class="lang-toggle lang-toggle--mobile"
+        aria-label="Switch to Spanish"
+        title="Cambiar idioma"
+      >
+        <span class="lang-toggle__active">ES</span>
+      </button>
+      <button class="navbar__burger" id="burger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="navbar__mobile" id="mobileMenu">
+    <a href="#residences" class="mobile-link">
+      <span class="lang-en">Residences</span><span class="lang-es">Residencias</span>
+    </a>
+    <a href="#amenities" class="mobile-link">
+      <span class="lang-en">Amenities</span><span class="lang-es">Amenidades</span>
+    </a>
+    <a href="#location" class="mobile-link">
+      <span class="lang-en">Location</span><span class="lang-es">Ubicación</span>
+    </a>
+    <a href="#payment" class="mobile-link">
+      <span class="lang-en">Investment</span><span class="lang-es">Inversión</span>
+    </a>
+    <a href={WA} target="_blank" rel="noopener noreferrer" class="mobile-link mobile-cta">
+      <span class="lang-en">Contact on WhatsApp</span><span class="lang-es">Contactar por WhatsApp</span>
+    </a>
+  </div>
+</header>
+
+<style>
+  /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     State-aware CSS variables
+     Default = over dark hero (white text)
+     .scrolled = over light content (dark text + liquid glass)
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+  .navbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    transition:
+      background 0.5s cubic-bezier(0.4,0,0.2,1),
+      border-color 0.5s ease,
+      box-shadow 0.5s ease;
+
+    /* default: transparent over hero */
+    --nav-text:         rgba(255, 255, 255, 0.80);
+    --nav-text-active:  #C4A882;
+    --nav-border:       rgba(255, 255, 255, 0.18);
+    --nav-logo-main:    #FFFFFF;
+    --nav-logo-sub:     rgba(255, 255, 255, 0.45);
+    --nav-burger:       rgba(255, 255, 255, 0.90);
+    --nav-cta-bg:       #D4BE9E;
+    --nav-cta-border:   rgba(17, 17, 17, 0.10);
+    --nav-cta-text:     #111111;
+  }
+
+  /* ── Liquid Glass — activated on scroll ── */
+  .navbar.scrolled {
+    --nav-text:         rgba(17, 17, 17, 0.60);
+    --nav-text-active:  #C4A882;
+    --nav-border:       rgba(196, 168, 130, 0.22);
+    --nav-logo-main:    #111111;
+    --nav-logo-sub:     rgba(17, 17, 17, 0.40);
+    --nav-burger:       #111111;
+    --nav-cta-bg:       #D4BE9E;
+    --nav-cta-border:   rgba(17, 17, 17, 0.11);
+    --nav-cta-text:     #111111;
+
+    /* Liquid glass core */
+    background: rgba(252, 250, 248, 0.68);
+    backdrop-filter: blur(24px) saturate(180%) brightness(1.04);
+    -webkit-backdrop-filter: blur(24px) saturate(180%) brightness(1.04);
+
+    /* Glass borders & depth */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.55);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.70),   /* top inner highlight */
+      inset 0 -1px 0 rgba(196, 168, 130, 0.12),  /* bottom inner glow */
+      0 8px 40px rgba(0, 0, 0, 0.08),
+      0 2px 6px rgba(0, 0, 0, 0.04);
+  }
+
+  /* ── Inner layout ── */
+  .navbar__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.4rem 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  /* ── Logo ── */
+  .navbar__logo {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    gap: 0.05rem;
+  }
+
+  .logo-nobe {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.80rem;
+    font-weight: 300;
+    color: var(--nav-logo-main);
+    letter-spacing: 0.18em;
+    transition: color 0.4s ease;
+  }
+
+  .logo-parc {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.80rem;
+    font-weight: 600;
+    color: #C4A882;
+    letter-spacing: 0.18em;
+    margin-top: -0.3rem;
+  }
+
+  .logo-location {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.60rem;
+    font-weight: 500;
+    letter-spacing: 0.30em;
+    text-transform: uppercase;
+    color: var(--nav-logo-sub);
+    margin-top: 0.18rem;
+    transition: color 0.4s ease;
+  }
+
+  /* ── Desktop nav links ── */
+  .navbar__nav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .navbar__nav > a {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.70rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--nav-text);
+    text-decoration: none;
+    transition: color 0.25s ease;
+  }
+
+  .navbar__nav > a:hover { color: var(--nav-text-active); }
+
+  /* ── CTA button in nav ── */
+  .nav-cta {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.70rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--nav-cta-text) !important;
+    border: 1px solid var(--nav-cta-border);
+    background: var(--nav-cta-bg);
+    padding: 0.5rem 1.3rem;
+    margin-left: 0.2rem;
+    transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  }
+
+  .nav-cta:hover {
+    background: transparent !important;
+    border-color: #C4A882 !important;
+    color: #C4A882 !important;
+  }
+
+  /* ── Language toggle ── */
+  .lang-toggle {
+    background: none;
+    border: 1px solid var(--nav-border);
+    color: var(--nav-text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.65rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    transition: border-color 0.25s ease, color 0.25s ease;
+  }
+
+  .lang-toggle:hover { border-color: #C4A882; color: #C4A882; }
+
+  .lang-toggle__active { color: #C4A882; }
+  .lang-toggle__sep { opacity: 0.35; }
+  .lang-toggle__other { opacity: 0.45; }
+
+  /* ── Mobile controls ── */
+  .navbar__right-mobile {
+    display: none;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .lang-toggle--mobile { padding: 0.28rem 0.5rem; }
+
+  .navbar__burger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .navbar__burger span {
+    display: block;
+    width: 22px;
+    height: 1px;
+    background: var(--nav-burger);
+    transition: transform 0.3s ease, opacity 0.3s ease, background 0.4s ease;
+  }
+
+  /* ── Mobile menu — always on white/light glass ── */
+  .navbar__mobile {
+    display: none;
+    flex-direction: column;
+    background: rgba(252, 250, 248, 0.92);
+    backdrop-filter: blur(24px) saturate(160%);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    padding: 1.5rem 2rem 2.5rem;
+    border-top: 1px solid rgba(196, 168, 130, 0.18);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.10);
+  }
+
+  .navbar__mobile.open { display: flex; }
+
+  .mobile-link {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.90rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(17,17,17,0.55);
+    text-decoration: none;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid rgba(17,17,17,0.06);
+    transition: color 0.25s ease;
+  }
+
+  .mobile-link:hover { color: #C4A882; }
+
+  .mobile-cta {
+    display: flex;
+    margin-top: 1.2rem;
+    background: #D4BE9E;
+    color: #111111;
+    border-bottom: none;
+    text-align: center;
+    padding: 0.9rem;
+    border: 1px solid rgba(17, 17, 17, 0.10);
+    justify-content: center;
+    transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  }
+
+  .mobile-cta:hover {
+    background: transparent;
+    color: #C4A882;
+    border-color: #C4A882;
+  }
+
+  @media (max-width: 1000px) {
+    .navbar__nav { display: none; }
+    .navbar__right-mobile { display: flex; }
+    .navbar__inner { padding: 1.2rem 1.5rem; }
+  }
+</style>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  window.addEventListener('scroll', () => {
+    navbar?.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  burger?.addEventListener('click', () => {
+    const isOpen = mobileMenu?.classList.contains('open');
+    mobileMenu?.classList.toggle('open');
+    burger.setAttribute('aria-expanded', String(!isOpen));
+  });
+
+  mobileMenu?.querySelectorAll('.mobile-link').forEach((link) => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      burger?.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
