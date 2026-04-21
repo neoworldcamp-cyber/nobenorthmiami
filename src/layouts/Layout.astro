@@ -23,9 +23,25 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="keywords" content="NoBe PARC Miami Beach, luxury condos Miami Beach, Miami Beach real estate, furnished condos Miami, investment property Miami, Finvarb, Arquitectonica, North Beach Miami condos, residencias de lujo Miami Beach" />
+    <meta
+      name="keywords"
+      content="NoBe PARC Miami Beach, luxury condos Miami Beach, Miami Beach real estate, furnished condos Miami, investment property Miami, Finvarb, Arquitectonica, North Beach Miami condos, residencias de lujo Miami Beach"
+    />
     <meta name="robots" content="index, follow" />
     <meta name="author" content="NoBe PARC Miami Beach" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WJNYB1LJ3Z"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-WJNYB1LJ3Z");
+    </script>
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
@@ -73,54 +89,70 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
     <style is:global>
       :root {
-        --bg:        #FFFFFF;
-        --bg-warm:   #F7F4F0;
-        --bg-dark:   #111111;
-        --ink:       #111111;
-        --ink-mid:   rgba(17, 17, 17, 0.72);
+        --bg: #ffffff;
+        --bg-warm: #f7f4f0;
+        --bg-dark: #111111;
+        --ink: #111111;
+        --ink-mid: rgba(17, 17, 17, 0.72);
         --ink-faint: rgba(17, 17, 17, 0.14);
-        --gold:      #C4A882;
-        --gold-light:#D9C4A8;
-        --gold-dim:  rgba(196, 168, 130, 0.15);
-        --gold-border: rgba(196, 168, 130, 0.30);
+        --gold: #c4a882;
+        --gold-light: #d9c4a8;
+        --gold-dim: rgba(196, 168, 130, 0.15);
+        --gold-border: rgba(196, 168, 130, 0.3);
         /* legacy aliases so existing component vars still resolve */
-        --navy:      #FFFFFF;
-        --navy-mid:  #F7F4F0;
-        --navy-light:#EEE9E2;
-        --white:     #111111;
+        --navy: #ffffff;
+        --navy-mid: #f7f4f0;
+        --navy-light: #eee9e2;
+        --white: #111111;
         --white-dim: rgba(17, 17, 17, 0.72);
         --white-faint: rgba(17, 17, 17, 0.12);
-        --charcoal:  #111111;
-        --light:     #FFFFFF;
-        --light-dim: rgba(255, 255, 255, 0.80);
+        --charcoal: #111111;
+        --light: #ffffff;
+        --light-dim: rgba(255, 255, 255, 0.8);
         --light-faint: rgba(255, 255, 255, 0.15);
       }
 
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-      html { scroll-behavior: smooth; font-size: 18px; }
+      html {
+        scroll-behavior: smooth;
+        font-size: 18px;
+      }
 
       body {
-        font-family: 'DM Sans', sans-serif;
+        font-family: "DM Sans", sans-serif;
         background-color: var(--navy);
         color: var(--white);
         overflow-x: hidden;
         line-height: 1.75;
       }
 
-      h1, h2, h3, h4 {
-        font-family: 'Cormorant Garamond', serif;
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Cormorant Garamond", serif;
         font-weight: 300;
         line-height: 1.15;
       }
 
       /* ── Language toggle ── */
-      html[data-lang="en"] .lang-es { display: none !important; }
-      html[data-lang="es"] .lang-en { display: none !important; }
+      html[data-lang="en"] .lang-es {
+        display: none !important;
+      }
+      html[data-lang="es"] .lang-en {
+        display: none !important;
+      }
 
       .section-label {
-        font-family: 'DM Sans', sans-serif;
-        font-size: 0.70rem;
+        font-family: "DM Sans", sans-serif;
+        font-size: 0.7rem;
         font-weight: 600;
         letter-spacing: 0.28em;
         text-transform: uppercase;
@@ -156,17 +188,22 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         background: transparent;
         border: 1px solid var(--gold);
         color: var(--gold);
-        font-family: 'DM Sans', sans-serif;
+        font-family: "DM Sans", sans-serif;
         font-size: 0.78rem;
         font-weight: 600;
-        letter-spacing: 0.20em;
+        letter-spacing: 0.2em;
         text-transform: uppercase;
         text-decoration: none;
         cursor: pointer;
-        transition: background 0.3s ease, color 0.3s ease;
+        transition:
+          background 0.3s ease,
+          color 0.3s ease;
       }
 
-      .btn-primary:hover { background: var(--gold); color: var(--navy); }
+      .btn-primary:hover {
+        background: var(--gold);
+        color: var(--navy);
+      }
 
       .btn-solid {
         display: inline-flex;
@@ -176,26 +213,45 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         background: var(--gold);
         border: 1px solid var(--gold);
         color: var(--navy);
-        font-family: 'DM Sans', sans-serif;
+        font-family: "DM Sans", sans-serif;
         font-size: 0.78rem;
         font-weight: 600;
-        letter-spacing: 0.20em;
+        letter-spacing: 0.2em;
         text-transform: uppercase;
         text-decoration: none;
         cursor: pointer;
-        transition: background 0.3s ease, color 0.3s ease;
+        transition:
+          background 0.3s ease,
+          color 0.3s ease;
       }
 
-      .btn-solid:hover { background: transparent; color: var(--gold); }
+      .btn-solid:hover {
+        background: transparent;
+        color: var(--gold);
+      }
 
       /* WhatsApp icon inside buttons */
-      .wa-icon { width: 16px; height: 16px; flex-shrink: 0; }
+      .wa-icon {
+        width: 16px;
+        height: 16px;
+        flex-shrink: 0;
+      }
 
-      ::selection { background: var(--gold); color: var(--navy); }
+      ::selection {
+        background: var(--gold);
+        color: var(--navy);
+      }
 
-      ::-webkit-scrollbar { width: 6px; }
-      ::-webkit-scrollbar-track { background: var(--navy); }
-      ::-webkit-scrollbar-thumb { background: var(--gold-border); border-radius: 3px; }
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--navy);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--gold-border);
+        border-radius: 3px;
+      }
     </style>
   </head>
   <body>
@@ -210,9 +266,17 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       id="waFloat"
       aria-label="Chat on WhatsApp"
     >
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-        <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.123 1.532 5.855L.057 23.5l5.83-1.527A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.894a9.893 9.893 0 0 1-5.031-1.372l-.361-.214-3.741.98 1-3.634-.235-.374A9.869 9.869 0 0 1 2.106 12C2.106 6.533 6.533 2.106 12 2.106S21.894 6.533 21.894 12 17.467 21.894 12 21.894z"/>
+      <svg
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
+        <path
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
+        ></path>
+        <path
+          d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.123 1.532 5.855L.057 23.5l5.83-1.527A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.894a9.893 9.893 0 0 1-5.031-1.372l-.361-.214-3.741.98 1-3.634-.235-.374A9.869 9.869 0 0 1 2.106 12C2.106 6.533 6.533 2.106 12 2.106S21.894 6.533 21.894 12 17.467 21.894 12 21.894z"
+        ></path>
       </svg>
       <span class="wa-float__tooltip lang-en">Chat on WhatsApp</span>
       <span class="wa-float__tooltip lang-es">Chatear por WhatsApp</span>
@@ -232,7 +296,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         align-items: center;
         justify-content: center;
         box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45);
-        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        transition:
+          transform 0.25s ease,
+          box-shadow 0.25s ease;
         text-decoration: none;
       }
 
@@ -250,9 +316,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       .wa-float__tooltip {
         position: absolute;
         right: 68px;
-        background: rgba(17,17,17,0.92);
+        background: rgba(17, 17, 17, 0.92);
         color: var(--white);
-        font-family: 'DM Sans', sans-serif;
+        font-family: "DM Sans", sans-serif;
         font-size: 0.68rem;
         font-weight: 500;
         white-space: nowrap;
@@ -263,35 +329,40 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         transition: opacity 0.2s ease;
       }
 
-      .wa-float:hover .wa-float__tooltip { opacity: 1; }
+      .wa-float:hover .wa-float__tooltip {
+        opacity: 1;
+      }
     </style>
 
     <script>
       /* Language switcher — default ES, toggles data-lang on <html> */
       const html = document.documentElement;
-      const stored = localStorage.getItem('nobe-lang');
-      if (stored === 'en') {
-        html.setAttribute('data-lang', 'en');
-        html.setAttribute('lang', 'en');
+      const stored = localStorage.getItem("nobe-lang");
+      if (stored === "en") {
+        html.setAttribute("data-lang", "en");
+        html.setAttribute("lang", "en");
       }
 
       function toggleLang() {
-        const current = html.getAttribute('data-lang') || 'en';
-        const next = current === 'en' ? 'es' : 'en';
-        html.setAttribute('data-lang', next);
-        html.setAttribute('lang', next);
-        localStorage.setItem('nobe-lang', next);
+        const current = html.getAttribute("data-lang") || "en";
+        const next = current === "en" ? "es" : "en";
+        html.setAttribute("data-lang", next);
+        html.setAttribute("lang", next);
+        localStorage.setItem("nobe-lang", next);
 
         // Update toggle button label
-        document.querySelectorAll('.lang-toggle').forEach((btn) => {
-          (btn as HTMLElement).setAttribute('aria-label', next === 'en' ? 'Switch to Spanish' : 'Switch to English');
-          const indicator = btn.querySelector('.lang-toggle__active');
+        document.querySelectorAll(".lang-toggle").forEach((btn) => {
+          (btn as HTMLElement).setAttribute(
+            "aria-label",
+            next === "en" ? "Switch to Spanish" : "Switch to English",
+          );
+          const indicator = btn.querySelector(".lang-toggle__active");
           if (indicator) indicator.textContent = next.toUpperCase();
         });
       }
 
-      document.querySelectorAll('.lang-toggle').forEach((btn) => {
-        btn.addEventListener('click', toggleLang);
+      document.querySelectorAll(".lang-toggle").forEach((btn) => {
+        btn.addEventListener("click", toggleLang);
       });
     </script>
   </body>
